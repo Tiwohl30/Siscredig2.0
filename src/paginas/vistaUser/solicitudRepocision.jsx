@@ -1,10 +1,10 @@
 import React from 'react';
-import NavAlumnos from '../../router/NavAlumnos';
+import NavAlumnos from '../../componentes/NavAlumnos';
+import Footer from "../../componentes/footer";
 
 function Reposicion() {
     return (
         <>
-
         <NavAlumnos></NavAlumnos>
             <div className="container my-4">
                 <h2 className="text-center mb-4">Solicitar reposición de credencial</h2>
@@ -36,23 +36,7 @@ function Reposicion() {
                     </div>
                 </div>
             </div>
-
-            <footer className="bg-dark text-light py-3" style={{ marginTop: '200px' }}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <h5>Contacto</h5>
-                            <p>Contacto@uptapachula.edu.mx</p>
-                            <p>(962) 689 0090 Ext. 1001-1010</p>
-                            <p>Carretera Tapachula - Puerto Madero KM. 24 + 300. Tapachula, Chiapas</p>
-                        </div>
-                        <div className="col-md-8 text-md-right">
-                            <p>&copy; 2023, UP Tapachula. Todos los derechos reservados.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            
+            <Footer/>
         </>
     );
 }

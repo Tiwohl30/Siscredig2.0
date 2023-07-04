@@ -8,9 +8,7 @@ function LoginAlumno(){
     return(
         <div>
             <body>
-                <InicioSesion subtitulo="ALUMNOS">
-
-                </InicioSesion>
+                <InicioSesion subtitulo="ALUMNOS"/>
             </body>
         </div>
     )
