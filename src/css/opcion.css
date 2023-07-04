@@ -34,7 +34,7 @@
     width: 300px;
     padding: 1.5rem 3rem;
     border-radius: 0.5rem;
-    background-color: #fff;
+   background-color: #f9f9f9;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
     font-size: 2rem;
@@ -163,4 +163,7 @@ button {
     cursor: pointer;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+}
+.styl{
+    background-color: #5b0b53;
 }

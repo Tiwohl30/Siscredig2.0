@@ -1,30 +1,40 @@
 import { useState } from "react";
-import {QrReader} from "react-qr-reader";
+import { useZxing } from "react-zxing";
+import NabvarAdmin from "../../componentes/NabvarAdmin";
 
-export const EscanerQR = (props) => {
 
+export const EscanerQR = () => {
 
-  const [data, setData] = useState('No result');
+var valorDespuesDeMatricula = ""
+const [result, setResult] = useState("");
+  const { ref } = useZxing({
+    onResult(result) {
+      setResult(result.getText());
+    },
+  });
+
+  const texto = result
+
+  // Buscamos la posición de "MATRICULA:"
+  const posicionInicio = texto.indexOf("MATRICULA:");
+
+  if (posicionInicio !== -1) {
+    // Extraemos la subcadena que va después de "MATRICULA:"
+    valorDespuesDeMatricula = texto.substring(posicionInicio + "MATRICULA:".length, posicionInicio + "MATRICULA:".length + 6).trim()
+    console.log(valorDespuesDeMatricula); // Resultado: "221025"
+  } else {
+    console.log("No se encontró la subcadena 'MATRICULA:'");
+  }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-        <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
-          }
-
-          if (!!error) {
-            console.info(error);
-          }
-        }}
-        style={{ width: '100%' }}
-      />
-      <p>{data}</p>
-        </div>
-      </div>
+    <div className="text-center">
+    <NabvarAdmin/>
+      <video className="p-5" ref={ref}/>
+      <p>
+        <span className="datosQr">Datos:</span>
+        <span className="resultadoQR">{result}, <br /> Valor despues de matricula:{valorDespuesDeMatricula}</span>
+      </p>
     </div>
   );
+
 };

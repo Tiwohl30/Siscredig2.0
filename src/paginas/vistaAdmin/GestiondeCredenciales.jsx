@@ -1,31 +1,10 @@
 import React from 'react';
+import NabvarAdmin from '../../componentes/NabvarAdmin';
 
 function GestionCredenciales() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <span className="navbar-brand" href="#">Administrador</span>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <span className="nav-link" href="credadmin.html">Vista previa credencial</span>
-                        </li>
-                        <li className="nav-item">
-                            <span className="nav-link" href="adminges.html">Gestión de usuarios</span>
-                        </li>
-                        <li className="nav-item">
-                            <span className="nav-link" href="gescreds.html">Gestión de credenciales</span>
-                        </li>
-                        <li className="nav-item active">
-                            <span className="nav-link" href="adminmess.html">Mensajería</span>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
+            <NabvarAdmin />
             <div className="container">
                 <h1>Gestión de Credenciales</h1>
                 <hr />
