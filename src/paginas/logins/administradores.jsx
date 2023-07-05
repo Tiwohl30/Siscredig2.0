@@ -35,7 +35,7 @@ function LoginAdmin() {
                                 <input id="matri" type="text" placeholder="Matricula"  />
                                 <input id="contra" type="password" placeholder="Contraseña"  />
                                 
-                                <Link to="/GestionCredenciales">
+                                <Link to="/GestionUsuarios">
                                 <button type="submit">
                                 login</button></Link>
                                 

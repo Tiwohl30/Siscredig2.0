@@ -8,9 +8,10 @@ import Reposicion from './paginas/vistaUser/solicitudRepocision';
 import LoginAlumno from './paginas/logins/alumno';
 import LoginAdmin from './paginas/logins/administradores';
 import Accesos from './paginas/accesos';
-import GestionCredenciales from './paginas/vistaAdmin/GestiondeCredenciales';
-import AdminGestionUsuarios from './paginas/vistaAdmin/adminGestionUser';
 import { EscanerQR } from './paginas/vistaAdmin/EscanearQR';
+import AdminGestionUsuarios from './paginas/vistaAdmin/adminGestionUser';
+import AdminMensajes from './paginas/vistaAdmin/apartadomensaje';
+
 
 const router = createBrowserRouter([
   {
@@ -44,11 +45,6 @@ const router = createBrowserRouter([
     errorElement: <h1>Error</h1>
   },
   {
-    path: '/GestionCredenciales',
-    element: <GestionCredenciales />,
-    errorElement: <h1>Error</h1>
-  },
-  {
     path: '/GestionUsuarios',
     element: <AdminGestionUsuarios />,
     errorElement: <h1>Error</h1>
@@ -58,6 +54,12 @@ const router = createBrowserRouter([
     element: <EscanerQR />,
     errorElement: <h1>Error</h1>
   },
+  {
+    path: '/Mensajes',
+    element: <AdminMensajes />,
+    errorElement: <h1>Error</h1>
+  },
+
 
 
 ])

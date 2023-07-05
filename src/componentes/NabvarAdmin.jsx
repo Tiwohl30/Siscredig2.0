@@ -4,7 +4,7 @@ function NabvarAdmin() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark styl">
-                <a className="navbar-brand" href="#">Administrador</a>
+                <span className="navbar-brand" href="#">Administrador</span>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@ function NabvarAdmin() {
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" >Mensajeria</Link>
+                            <Link className="nav-link" to="/Mensajes">Mensajeria</Link>
                         </li>
                     </ul>
                 </div>

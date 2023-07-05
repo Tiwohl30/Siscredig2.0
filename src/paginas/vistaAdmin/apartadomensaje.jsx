@@ -1,34 +1,50 @@
 import React from 'react';
+import { useState } from "react";
+import { Button, Card} from "react-bootstrap";
 import NabvarAdmin from '../../componentes/NabvarAdmin';
 
 function AdminMensajes() {
+
+
+    const [mensajes, setMensajes] = useState([
+        {
+          id: 1,
+          remitente: "Estudiante A",
+          mensaje: "Solicitud de reposición de credencial.",
+        },
+        {
+          id: 2,
+          remitente: "Maestro B",
+          mensaje: "Necesito una nueva credencial, la mía está dañada.",
+        },
+      ]);
+    
+      const handleResponder = (id) => {
+        // Lógica para responder al mensaje con el ID proporcionado
+        console.log("Responder al mensaje con ID:", id);
+      };
+        
     return (
         <div>
             <NabvarAdmin/>
-            <div className="container mt-4">
-                <h1>Mensajerídda</h1>
-                <hr />
-                <div className="row">
-                    <div className="col-md-6">
-                        <h2>Enviar mensaje</h2>
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="destinatario">Destinatario:</label>
-                                <input type="text" className="form-control" id="destinatario" placeholder="Nombre o correo del destinatario" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="asunto">Asunto:</label>
-                                <input type="text" className="form-control" id="asunto" placeholder="Asunto del mensaje" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="mensaje">Mensaje:</label>
-                                <textarea className="form-control" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí"></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-primary">Enviar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
+
+            <h2>Mensajes de solicitud de reposición de credencial</h2>
+      {mensajes.map((mensaje) => (
+        <Card key={mensaje.id} className="mb-3">
+          <Card.Body>
+            <Card.Title>De: {mensaje.remitente}</Card.Title>
+            <Card.Text>{mensaje.mensaje}</Card.Text>
+            <Button
+              variant="primary"
+              onClick={() => handleResponder(mensaje.id)}
+            >
+              Responder
+            </Button>
+          </Card.Body>
+        </Card>
+      ))}
+
 
             <footer className="bg-dark text-light py-3" style={{ marginTop: "100px" }}>
                 <div className="container">
