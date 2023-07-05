@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../../css/IniSes.css';
-import '../../fontawesome-free-6.3.0-web/css/all.min.css'
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Footer  from "../../componentes/footer";
@@ -35,7 +35,7 @@ function LoginAdmin() {
                                 <input id="matri" type="text" placeholder="Matricula"  />
                                 <input id="contra" type="password" placeholder="Contraseña"  />
                                 
-                                <Link to="/GestionCredenciales">
+                                <Link to="/GestionUsuarios">
                                 <button type="submit">
                                 login</button></Link>
                                 

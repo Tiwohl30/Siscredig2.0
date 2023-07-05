@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/opcion.css';
-import '../fontawesome-free-6.3.0-web/css/all.min.css';
 import Button from '@mui/material/Button';
 import Footer from '../componentes/footer'
 import BarraAcceso from '../componentes/bar';
