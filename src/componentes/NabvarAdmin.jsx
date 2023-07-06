@@ -11,9 +11,7 @@ function NabvarAdmin() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/VistaPrevia">Vista previa credencial</Link>
-                        </li>
+                        
                         <li className="nav-item">
                             <Link className="nav-link" to="/GestionUsuarios">Gestión de usuarios</Link>
                         </li>

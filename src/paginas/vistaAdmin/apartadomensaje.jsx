@@ -25,28 +25,33 @@ function AdminMensajes() {
       };
         
     return (
-        <div>
-            <NabvarAdmin/>
-            
+      <>
 
-            <h2>Mensajes de solicitud de reposición de credencial</h2>
-      {mensajes.map((mensaje) => (
-        <Card key={mensaje.id} className="mb-3">
-          <Card.Body>
-            <Card.Title>De: {mensaje.remitente}</Card.Title>
-            <Card.Text>{mensaje.mensaje}</Card.Text>
-            <Button
-              variant="primary"
-              onClick={() => handleResponder(mensaje.id)}
-            >
-              Responder
-            </Button>
-          </Card.Body>
+       
+        <div>
+        <NabvarAdmin/>
+            
+          <h2 style={{ marginTop: "30px", marginLeft:"30px" }}>Mensajes de solicitud de reposición de credencial</h2>
+          {mensajes.map((mensaje) => (
+          <Card key={mensaje.id} className="mb-3 ml-4 mt-5">
+            <Card.Body>
+              <Card.Title>De: {mensaje.remitente}</Card.Title>
+              <Card.Text>{mensaje.mensaje}</Card.Text>
+              <Button
+                variant="primary"
+                onClick={() => handleResponder(mensaje.id)}
+              >
+                Responder
+              </Button>
+            </Card.Body>
         </Card>
       ))}
 
 
-            <footer className="bg-dark text-light py-3" style={{ marginTop: "100px" }}>
+        </div>
+
+
+        <footer className="bg-dark text-light py-3" style={{ marginTop: "200px" }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
@@ -61,7 +66,8 @@ function AdminMensajes() {
                     </div>
                 </div>
             </footer>
-        </div>
+
+        </>
     );
 }
 

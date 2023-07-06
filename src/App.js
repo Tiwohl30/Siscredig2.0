@@ -10,7 +10,7 @@ import Accesos from './paginas/accesos';
 import { EscanerQR } from './paginas/vistaAdmin/EscanearQR';
 import AdminGestionUsuarios from './paginas/vistaAdmin/adminGestionUser';
 import AdminMensajes from './paginas/vistaAdmin/apartadomensaje';
-
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 
 const router = createBrowserRouter([
