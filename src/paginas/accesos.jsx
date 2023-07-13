@@ -22,12 +22,18 @@ function Accesos() {
                 <div className="menu">
                     <div className="menu-item alumno">
                         <i className="fa-solid fa-user" />
-                        <h2>Alumno/Profesor</h2>
+                        <h2>Alumno</h2>
                         <Link to="LoginAlumnos">
                             <Button variant="outlined" color='secondary'>IR</Button>
                         </Link>
                     </div>
-                    
+                    <div className="menu-item administrativos">
+                        <i className="fa-solid fa-shield-halved" />
+                        <h2>Docente</h2>
+                        <Link to="/loginMaestro">
+                            <Button variant="outlined" color='secondary'>IR</Button>
+                        </Link>
+                    </div>
                     <div className="menu-item administrativos">
                         <i className="fa-solid fa-shield-halved" />
                         <h2>Administrativos</h2>
@@ -35,6 +41,7 @@ function Accesos() {
                             <Button variant="outlined" color='secondary'>IR</Button>
                         </Link>
                     </div>
+
                 </div>
             </div>
             <div className='separator'></div>

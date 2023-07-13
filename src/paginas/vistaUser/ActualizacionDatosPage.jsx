@@ -3,11 +3,11 @@ import Loading from '../../componentes/buttons/circularColor';
 import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
 
-class ActualizacionDatos extends React.Component {
-    render() {
+function ActualizacionDatos(isLoggedIn){
+    
         return (
             <div>
-                <NavAlumnos/>
+               
                 <div className="container my-5">
                     <h2>Actualización de datos del estudiante</h2>
                     <form>
@@ -49,7 +49,6 @@ class ActualizacionDatos extends React.Component {
             </div>
         );
     }
-}
 
 
 export default ActualizacionDatos;

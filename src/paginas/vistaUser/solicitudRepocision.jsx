@@ -2,10 +2,10 @@ import React from 'react';
 import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
 
-function Reposicion() {
+function Reposicion(isLoggedIn) {
     return (
         <>
-        <NavAlumnos></NavAlumnos>
+        
             <div className="container my-4">
                 <h2 className="text-center mb-4">Solicitar reposición de credencial</h2>
                 <div className="row justify-content-center">

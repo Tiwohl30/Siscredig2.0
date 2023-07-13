@@ -2,10 +2,14 @@ import React from 'react';
 import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
 
-function VistaPrevia() {
+function VistaPrevia({ userData, isLoggedIn }) {
+
+    
+    console.log(userData.data.nombre);
+    
     return (
         <>
-        <NavAlumnos/>
+        
             <div className="container" style={{ marginBottom: '100px' }}>
                 <div className="card mt-5">
                     <div className="card-header bg-dark text-white">
@@ -20,55 +24,49 @@ function VistaPrevia() {
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Nombre completo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="Juan Pérez" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.nombre} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Matrícula:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="A123456" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.matricula} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Cuatrimestre:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="5to" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.cuatrimestre} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Carrera:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="Ingeniería de software" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.carrera} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Correo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="12345@uptapachula.edu.mx" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.email} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="col-sm-3 col-form-label">Fecha de expedición:</label>
+                                    <label className="col-sm-3 col-form-label">Direccion:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="01/01/2023" readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label className="col-sm-3 col-form-label">Fecha de vencimiento:</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="01/01/2024" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.direccion} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Número de seguridad social:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="235892356" readOnly />
+                                        <input type="text" className="form-control" value=" "readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Tipo de sangre:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="A+" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.tipo_sangre} readOnly />
                                     </div>
                                 </div>
                             </div>
@@ -91,25 +89,25 @@ function VistaPrevia() {
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Nombre completo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="José Pérez" readOnly />
+                                        <input type="text" className="form-control" value={`${userData.data.nombre_contactoe} ${userData.data.apellido_materno_contactoe} ${userData.data.apellido_paterno_contactoe}`} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Número telefónico:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="9621234567" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.telefono_contactoe}readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Parentesco</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="Padre" readOnly />
+                                        <input type="text" className="form-control" value={userData.data.parentescto_contactoe} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Correo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value="mail@mail.com" readOnly />
+                                        <input type="text" className="form-control" value={" "} readOnly />
                                     </div>
                                 </div>
                             </div>
