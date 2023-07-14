@@ -2,8 +2,10 @@ import React from 'react';
 import Loading from '../../componentes/buttons/circularColor';
 import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
+import { useNavigate, Navigate } from 'react-router-dom';
 
-function ActualizacionDatos(isLoggedIn){
+function ActualizacionDatos(isLoggedIn, userData){
+    
     
         return (
             <div>

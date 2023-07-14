@@ -1,12 +1,13 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
-import VistaPrevia from './vistaprevia';
+import { Route, useNavigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ element: Element, isLoggedIn, ...rest }) => {
+  const navigate = useNavigate();
+
   return (
     <Route
       {...rest}
-      element={isLoggedIn ? <Element /> : <Navigate to="/" replace />}
+      render={() => (isLoggedIn ? <Element /> : navigate('/'))}
     />
   );
 };

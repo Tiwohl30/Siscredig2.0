@@ -23,40 +23,45 @@ import ProtectedRoute from './paginas/vistaUser/ProtectedRoute';
    
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userData, setUserData] = useState(null);
-  
+    const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
     const handleLogin = (user) => {
       setIsLoggedIn(true);
       setUserData(user);
     };
 
+    const handleAdminLogin = (user) => {
+      setIsAdminLoggedIn(true);
+      // Resto de la lógica de inicio de sesión para el usuario administrativo
+    };
     
       return (
         <>
         
         <BrowserRouter>
-        <NavAlumnos isLoggedIn={isLoggedIn} />
+        <NavAlumnos isLoggedIn={isLoggedIn} isAdminLoggedIn={isAdminLoggedIn}/>
           <Routes>
             <Route path="/" element={<Accesos />} />
             <Route path="/loginAlumnos" element={<LoginAlumno onLogin={handleLogin}/>}/>
-            <Route path="/loginMaestro" element={<LoginProfesor />} />
-            <Route path="/loginAdmin" element={<LoginAdmin />} />
+            <Route path="/loginMaestro" element={<LoginProfesor onLogin={handleLogin}/>} />
+            <Route path="/loginAdmin" element={<LoginAdmin onLogin={handleAdminLogin}/>} />
             <Route path="/VistaPrevia" element={<VistaPrevia userData={userData} />} />
+            <Route path="/ActualizacionDatos" element={<ActualizacionDatos userData={userData} />} />
+            <Route path="/SolicitudReposicion" element={<Reposicion userData={userData} />} />
             <Route
               path="/VistaPrevia"
               element={<ProtectedRoute element={VistaPrevia} isLoggedIn={isLoggedIn} />}
             />
 
-            
-        <Route
-          path="/ActualizacionDatos"
-          element={<ActualizacionDatos
-          isLoggedIn={isLoggedIn} />}
-        />
-        <Route
-          path="/SolicitudReposicion"
-          element={<Reposicion />}
-          isLoggedIn={isLoggedIn}
-        />
+            <Route
+              path="/ActualizacionDatos"
+              element={<ProtectedRoute element={ActualizacionDatos} isLoggedIn={isLoggedIn} />}
+            />
+
+            <Route
+              path="/SolicitudReposicion"
+              element={<ProtectedRoute element={Reposicion} isLoggedIn={isLoggedIn} />}
+            />
 
             <Route path="/GestionUsuarios" element={<AdminGestionUsuarios />} />
             <Route path="/EscanearQR" element={<EscanerQR />} />

@@ -2,9 +2,10 @@ import React from 'react';
 import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
 
-function VistaPrevia({ userData, isLoggedIn }) {
+function VistaPrevia({ userData }) {
 
-    
+
+   
     console.log(userData.data.nombre);
     
     return (
