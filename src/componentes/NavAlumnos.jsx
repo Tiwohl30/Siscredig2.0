@@ -1,8 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function NavAlumnos({ isLoggedIn }) {
+function NavAlumnos({ isLoggedIn, setIsLoggedIn }) {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate('/');
+  };
+
+if(isLoggedIn){
+
   return (
+    
     <nav className="navbar navbar-expand-lg navbar-dark styl">
       <Link className="navbar-brand">Credenciales</Link>
       <button
@@ -33,10 +44,23 @@ function NavAlumnos({ isLoggedIn }) {
               </Link>
             </>
           )}
+
+          {isLoggedIn && (
+            <li className="nav-item">
+              <button className="nav-link" onClick={handleLogout}>
+                Cerrar Sesión
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
-  );
+  );}
+
+  else {
+    return <></>
+  }
+
 }
 
 export default NavAlumnos;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import ActualizacionDatos from './paginas/vistaUser/ActualizacionDatosPage';
 import VistaPrevia from './paginas/vistaUser/vistaprevia';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Reposicion from './paginas/vistaUser/solicitudRepocision';
 import LoginAlumno from './paginas/logins/alumno';
 import LoginAdmin from './paginas/logins/administradores';
@@ -39,28 +39,26 @@ import ProtectedRoute from './paginas/vistaUser/ProtectedRoute';
         <>
         
         <BrowserRouter>
-        <NavAlumnos isLoggedIn={isLoggedIn} isAdminLoggedIn={isAdminLoggedIn}/>
+        <NavAlumnos isLoggedIn={isLoggedIn} setIsLoggedIn ={setIsLoggedIn} isAdminLoggedIn={isAdminLoggedIn}/>
           <Routes>
             <Route path="/" element={<Accesos />} />
             <Route path="/loginAlumnos" element={<LoginAlumno onLogin={handleLogin}/>}/>
             <Route path="/loginMaestro" element={<LoginProfesor onLogin={handleLogin}/>} />
             <Route path="/loginAdmin" element={<LoginAdmin onLogin={handleAdminLogin}/>} />
-            <Route path="/VistaPrevia" element={<VistaPrevia userData={userData} />} />
-            <Route path="/ActualizacionDatos" element={<ActualizacionDatos userData={userData} />} />
-            <Route path="/SolicitudReposicion" element={<Reposicion userData={userData} />} />
+        
             <Route
               path="/VistaPrevia"
-              element={<ProtectedRoute element={VistaPrevia} isLoggedIn={isLoggedIn} />}
+              element={isLoggedIn ? <VistaPrevia isLoggedIn={isLoggedIn} userData={userData}/> : <Navigate to="/" />}
             />
 
             <Route
               path="/ActualizacionDatos"
-              element={<ProtectedRoute element={ActualizacionDatos} isLoggedIn={isLoggedIn} />}
+              element={isLoggedIn ? <ActualizacionDatos isLoggedIn={isLoggedIn} /> : <Navigate to="/" />}
             />
 
             <Route
               path="/SolicitudReposicion"
-              element={<ProtectedRoute element={Reposicion} isLoggedIn={isLoggedIn} />}
+              element={isLoggedIn ? <Reposicion isLoggedIn={isLoggedIn} /> : <Navigate to="/" />}
             />
 
             <Route path="/GestionUsuarios" element={<AdminGestionUsuarios />} />

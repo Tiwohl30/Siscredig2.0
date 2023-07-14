@@ -5,8 +5,6 @@ import Footer from "../../componentes/footer";
 function VistaPrevia({ userData }) {
 
 
-   
-    console.log(userData.data.nombre);
     
     return (
         <>
@@ -19,7 +17,7 @@ function VistaPrevia({ userData }) {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                                <img className="img-fluid" src="https://via.placeholder.com/150x200" alt="Foto" />
+                            <img className="img-fluid" src={userData.data.fotografia} alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">
