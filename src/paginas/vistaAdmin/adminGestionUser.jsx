@@ -1,66 +1,31 @@
 import React from 'react';
+
 import NabvarAdmin from '../../componentes/NabvarAdmin';
+import GestionAlumnos from './Gestion/GesAlumnos';
+import GestionMaestros from './Gestion/GesMaestros';
+import GestionOtros from './Gestion/GesOtros';
 
-class AdminGestionUsuarios extends React.Component {
+function AdminGestionUsuarios(){
 
-    render() {
+
+ 
+
+
+
+    
         return (
             <div>
               <NabvarAdmin/>
       <div className="container">
       <h1 className="mt-4">Resumen</h1>
-            <div className="row">
-              <div className="col-md-12">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h5 className="card-title">Estudiantes</h5>
-                    <p className="card-text">Número total de estudiantes: X</p>
-                      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-                      <div id="demo" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
+
+          <GestionMaestros />
+          
+          <GestionAlumnos />
 
 
-            <div className="row">
-              <div className="col-md-12">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h5 className="card-title">Maestrs</h5>
-                    <p className="card-text">Número total de maestros: X</p>
-                      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2">Simple collapsible</button>
-                      <div id="demo2" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="row">
-              <div className="col-md-12">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h5 className="card-title">Estudiantes</h5>
-                    <p className="card-text">Número total de estudiantes: X</p>
-                      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo3">Simple collapsible</button>
-                      <div id="demo3" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <GestionOtros />
 
 
             
@@ -85,7 +50,7 @@ class AdminGestionUsuarios extends React.Component {
                 </footer>
             </div>
         );
-    }
+    
 }
 
 export default AdminGestionUsuarios;

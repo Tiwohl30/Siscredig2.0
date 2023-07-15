@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import ActualizacionDatos from './paginas/vistaUser/ActualizacionDatosPage';
 import VistaPrevia from './paginas/vistaUser/vistaprevia';
@@ -13,7 +13,7 @@ import AdminMensajes from './paginas/vistaAdmin/apartadomensaje';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import LoginProfesor from './paginas/logins/profesor';
 import NavAlumnos from './componentes/NavAlumnos';
-import ProtectedRoute from './paginas/vistaUser/ProtectedRoute';
+
 
 
 
