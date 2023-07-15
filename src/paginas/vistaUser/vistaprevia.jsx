@@ -1,10 +1,10 @@
 import React from 'react';
-import NavAlumnos from '../../componentes/NavAlumnos';
 import Footer from "../../componentes/footer";
 
 function VistaPrevia({ userData }) {
 
 
+    console.log(userData.tipoLogin)
     
     return (
         <>
@@ -17,55 +17,60 @@ function VistaPrevia({ userData }) {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                            <img className="img-fluid" src={userData.data.fotografia} alt="Foto" />
+                            <img className="img-fluid" src={userData.fotografia} alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Nombre completo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.nombre} readOnly />
+                                        <input type="text" className="form-control" value={`${userData.nombre} ${userData.apellido_paterno} ${userData.apellido_materno}`} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="col-sm-3 col-form-label">Matrícula:</label>
+                                    <label className="col-sm-3 col-form-label">Matrícula / numero de control:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.matricula} readOnly />
+                                        <input type="text" className="form-control" value={ userData.matricula ? userData.matricula : userData.numero_control} readOnly />
                                     </div>
                                 </div>
+
+                                { userData.cuatrimestre &&(
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Cuatrimestre:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.cuatrimestre} readOnly />
+                                        <input type="text" className="form-control" value={userData.cuatrimestre} readOnly />
                                     </div>
-                                </div>
+                                </div>)}
+
+                                { userData.carrera &&(
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Carrera:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.carrera} readOnly />
+                                        <input type="text" className="form-control" value={userData.carrera} readOnly />
                                     </div>
-                                </div>
+                                </div>)}
+
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Correo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.email} readOnly />
+                                        <input type="text" className="form-control" value={userData.email} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Direccion:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.direccion} readOnly />
+                                        <input type="text" className="form-control" value={userData.direccion} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Número de seguridad social:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value=" "readOnly />
+                                        <input type="text" className="form-control" value={userData.nss} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Tipo de sangre:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.tipo_sangre} readOnly />
+                                        <input type="text" className="form-control" value={userData.tipo_sangre} readOnly />
                                     </div>
                                 </div>
                             </div>
@@ -88,27 +93,22 @@ function VistaPrevia({ userData }) {
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Nombre completo:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={`${userData.data.nombre_contactoe} ${userData.data.apellido_materno_contactoe} ${userData.data.apellido_paterno_contactoe}`} readOnly />
+                                        <input type="text" className="form-control" value={`${userData.nombre_contactoe} ${userData.apellido_paterno_contactoe} ${userData.apellido_materno_contactoe}`} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Número telefónico:</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.telefono_contactoe}readOnly />
+                                        <input type="text" className="form-control" value={userData.telefono_contactoe}readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label">Parentesco</label>
                                     <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={userData.data.parentescto_contactoe} readOnly />
+                                        <input type="text" className="form-control" value={userData.parentescto_contactoe} readOnly />
                                     </div>
                                 </div>
-                                <div className="form-group row">
-                                    <label className="col-sm-3 col-form-label">Correo:</label>
-                                    <div className="col-sm-9">
-                                        <input type="text" className="form-control" value={" "} readOnly />
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

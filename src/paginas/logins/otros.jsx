@@ -3,7 +3,7 @@ import { useNavigate  } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function LoginProfesor({ onLogin }){
+function LoginOtros({ onLogin }){
 
       const navigate = useNavigate();
 
@@ -23,22 +23,24 @@ function LoginProfesor({ onLogin }){
         event.preventDefault();
     
         try {
-        const response = await axios.post('http://127.0.0.1:8000/loginD/', { numero_control, password });
-   
+        const response = await axios.post('http://127.0.0.1:8000/loginO/', { numero_control, password });
+      
+        
         // Obtén los datos del usuario autenticado
-        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/docentes/${numero_control}`);
+        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/otros/${numero_control}`);
         const userData = {
-          ...userDataResponse.data,
-          tipoLogin: 'docentes', // Agrega el tipo de login al objeto userData
-        };
-        console.log(response.data);
-        console.log(userData.data);
-        onLogin(userData);
-
-        navigate('/VistaPrevia');
-        return userData
+            ...userDataResponse.data,
+            tipoLogin: 'otros', // Agrega el tipo de login al objeto userData
+          };
+    
+          console.log(response.data);
+          console.log(userData);
+          onLogin(userData);
+    
+          navigate('/VistaPrevia');
+          return userData;
         } catch (error) {
-        // Ocurrió un error durante la solicitud
+        // Ocurrió un error durante la solicitud, puedes manejarlo aquí.
         setError('Credenciales inválidas');
         console.error(error);
     }
@@ -52,7 +54,7 @@ function LoginProfesor({ onLogin }){
             <div className="container">
                 <div className="info">
                     <h1 className="titulos">Universidad Politecnica De Tapachula</h1>
-                    <h1 className="sub">Maestros</h1>
+                    <h1 className="sub">Otros</h1>
                 </div>
             </div>
             <div className="form">
@@ -77,4 +79,4 @@ function LoginProfesor({ onLogin }){
     )
 }
 
-export default LoginProfesor;
+export default LoginOtros;

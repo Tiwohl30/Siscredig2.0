@@ -24,17 +24,20 @@ function LoginAlumno({ onLogin }){
     
         try {
         const response = await axios.post('http://127.0.0.1:8000/login/', { matricula, password });
-        // La solicitud fue exitosa, puedes realizar acciones adicionales aquí,
-        // como almacenar el token de autenticación en el local storage y redirigir al usuario.
-        
-        // Obtén los datos del usuario autenticado
-        const userData = await axios.get(`http://127.0.0.1:8000/api/alumnos/${matricula}`);
-        console.log(response.data);
-        console.log(userData.data);
-        onLogin(userData);
-
-        navigate('/VistaPrevia');
-        return userData
+  
+  
+        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/alumnos/${matricula}`);
+        const userData = {
+            ...userDataResponse.data,
+            tipoLogin: 'alumnos', // Agrega el tipo de login al objeto userData
+          };
+    
+          console.log(response.data);
+          console.log(userData);
+          onLogin(userData);
+    
+          navigate('/VistaPrevia');
+          return userData;
         } catch (error) {
         // Ocurrió un error durante la solicitud, puedes manejarlo aquí.
         setError('Credenciales inválidas');
@@ -59,11 +62,11 @@ function LoginAlumno({ onLogin }){
                 </div>
 
                 <form className="myForm" onSubmit={handleLogin}>
-                    <input id="matri" type="text" placeholder="Correo" value={matricula} onChange={handleMatriculaChange} required />
+                    <input id="matri" type="text" placeholder="Matricula" value={matricula} onChange={handleMatriculaChange} required />
                     <input id="contra" type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} required />
                     <button type="submit">Iniciar sesión</button>
                     <p className="message">
-                        Recuerda iniciar sesión con tu correo institucional.
+                        Recuerda iniciar sesión con tu MATRICULA.
                     </p>
                     {error && <p>{error}</p>}
                 </form>

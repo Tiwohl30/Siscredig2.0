@@ -9,11 +9,12 @@ import LoginAdmin from './paginas/logins/administradores';
 import Accesos from './paginas/accesos';
 import { EscanerQR } from './paginas/vistaAdmin/EscanearQR';
 import AdminGestionUsuarios from './paginas/vistaAdmin/adminGestionUser';
-import AdminMensajes from './paginas/vistaAdmin/apartadomensaje';
+
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import LoginProfesor from './paginas/logins/profesor';
 import NavAlumnos from './componentes/NavAlumnos';
-
+import LoginOtros from './paginas/logins/otros';
+import NabvarAdmin from './componentes/NabvarAdmin';
 
 
 
@@ -32,19 +33,23 @@ import NavAlumnos from './componentes/NavAlumnos';
 
     const handleAdminLogin = (user) => {
       setIsAdminLoggedIn(true);
-      // Resto de la lógica de inicio de sesión para el usuario administrativo
+      setUserData(user);
+      console.log(isAdminLoggedIn)
     };
     
       return (
         <>
         
+       
         <BrowserRouter>
-        <NavAlumnos isLoggedIn={isLoggedIn} setIsLoggedIn ={setIsLoggedIn} isAdminLoggedIn={isAdminLoggedIn}/>
+        <NavAlumnos isLoggedIn={isLoggedIn} setIsLoggedIn ={setIsLoggedIn}/>
+        <NabvarAdmin isAdminLoggedIn={isAdminLoggedIn} setIsAdminLoggedIn={setIsAdminLoggedIn} />
           <Routes>
             <Route path="/" element={<Accesos />} />
             <Route path="/loginAlumnos" element={<LoginAlumno onLogin={handleLogin}/>}/>
             <Route path="/loginMaestro" element={<LoginProfesor onLogin={handleLogin}/>} />
-            <Route path="/loginAdmin" element={<LoginAdmin onLogin={handleAdminLogin}/>} />
+            <Route path="/loginOtros" element={<LoginOtros onLogin={handleLogin}/>}/>
+            <Route path="/loginAdmin" element={<LoginAdmin onAdminLogin={handleAdminLogin}/>} />
         
             <Route
               path="/VistaPrevia"
@@ -53,17 +58,22 @@ import NavAlumnos from './componentes/NavAlumnos';
 
             <Route
               path="/ActualizacionDatos"
-              element={isLoggedIn ? <ActualizacionDatos isLoggedIn={isLoggedIn} /> : <Navigate to="/" />}
+              element={isLoggedIn ? <ActualizacionDatos isLoggedIn={isLoggedIn} userData={userData}/> : <Navigate to="/" />}
             />
 
             <Route
               path="/SolicitudReposicion"
-              element={isLoggedIn ? <Reposicion isLoggedIn={isLoggedIn} /> : <Navigate to="/" />}
+              element={isLoggedIn ? <Reposicion isLoggedIn={isLoggedIn} userData={userData}/> : <Navigate to="/" />}
             />
 
-            <Route path="/GestionUsuarios" element={<AdminGestionUsuarios />} />
-            <Route path="/EscanearQR" element={<EscanerQR />} />
-            <Route path="/Mensajes" element={<AdminMensajes />} />
+            <Route path="/GestionUsuarios" 
+            element={isAdminLoggedIn ? <AdminGestionUsuarios isAdminLoggedIn={isAdminLoggedIn} userData={userData}/> : <Navigate to="/" />} />
+
+            <Route path="/EscanearQR"
+            element={<EscanerQR isAdminLoggedIn={isAdminLoggedIn}/>} />
+            
+            {/* <Route path="/Mensajes" 
+            element={<AdminMensajes isAdminLoggedIn={isAdminLoggedIn}/>} /> */}
           </Routes>
         </BrowserRouter>
         </>

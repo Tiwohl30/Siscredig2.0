@@ -47,7 +47,7 @@ if(isLoggedIn){
 
           {isLoggedIn && (
             <li className="nav-item">
-              <button className="nav-link" onClick={handleLogout}>
+              <button className="btn btn-outline-danger ml-2" onClick={handleLogout}>
                 Cerrar Sesión
               </button>
             </li>

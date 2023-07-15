@@ -36,6 +36,13 @@ function Accesos() {
                     </div>
                     <div className="menu-item administrativos">
                         <i className="fa-solid fa-shield-halved" />
+                        <h2>Otros</h2>
+                        <Link to="loginOtros">
+                            <Button variant="outlined" color='secondary'>IR</Button>
+                        </Link>
+                    </div>
+                    <div className="menu-item administrativos">
+                        <i className="fa-solid fa-shield-halved" />
                         <h2>Administrativos</h2>
                         <Link to="/loginAdmin">
                             <Button variant="outlined" color='secondary'>IR</Button>

@@ -1,6 +1,18 @@
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
 
-function NabvarAdmin() {
+
+function NabvarAdmin({ isAdminLoggedIn, setIsAdminLoggedIn }) {
+    
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        setIsAdminLoggedIn(false);
+        navigate('/');
+    };
+
+    if(isAdminLoggedIn){
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark styl">
@@ -10,7 +22,7 @@ function NabvarAdmin() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
+                { isAdminLoggedIn&&(<ul className="navbar-nav">
                         
                         <li className="nav-item">
                             <Link className="nav-link" to="/GestionUsuarios">Gestión de usuarios</Link>
@@ -22,12 +34,20 @@ function NabvarAdmin() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/Mensajes">Mensajeria</Link>
                         </li>
-                    </ul>
+                    </ul>)}
+
+                    {isAdminLoggedIn && (
+                    <li className="nav-item">
+                    <button className="btn btn-outline-danger ml-2" onClick={handleLogout}>
+                        Cerrar Sesión
+                    </button>
+                    </li>
+                )}
                 </div>
             </nav>
 
         </div>
     )
-}
+} else { }}
 
 export default NabvarAdmin;

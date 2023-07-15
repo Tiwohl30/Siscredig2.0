@@ -1,55 +1,82 @@
-import { Link } from 'react-router-dom';
 import '../../css/IniSes.css';
+import { useNavigate  } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import Footer  from "../../componentes/footer";
+function LoginOtros({ onAdminLogin }){
 
+      const navigate = useNavigate();
 
-function LoginAdmin() {
-    return (
+      const [error, setError] = useState('');
+      const [numero_control, setNumero_control] = useState('');
+      const [password, setPassword] = useState('');
+    
+      const handleMatriculaChange = (event) => {
+        setNumero_control(event.target.value);
+      };
+    
+      const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+      };
+    
+      const handleLogin = async (event) => {
+        event.preventDefault();
+    
+        try {
+        const response = await axios.post('http://127.0.0.1:8000/loginA/', { numero_control, password });
+      
+        
+        // Obtén los datos del usuario autenticado
+        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/administrativos/${numero_control}`);
+        const userData = {
+            ...userDataResponse.data,
+            tipoLogin: 'admin', // Agrega el tipo de login al objeto userData
+          };
+    
+          console.log(response.data);
+          console.log(userData);
+          onAdminLogin(userData);
+    
+          navigate('/GestionUsuarios');
+          return userData;
+        } catch (error) {
+        // Ocurrió un error durante la solicitud, puedes manejarlo aquí.
+        setError('Credenciales inválidas');
+        console.error(error);
+    }
+      };
+      
+
+    return(
         <div>
-            <Helmet>
-                <link rel="stylesheet" href="../../css/status.css" />
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-                <link rel="stylesheet" href="../../fontawesome-free-6.3.0-web/css/all.min.css" />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Inicio</title>
-            </Helmet>
             <body>
-                {
-                    
-                    <div>
-                        <div class="container">
-                            <div class="info">
-                                <h1>Universidad Politecnica De Tapachula </h1>
-                                <span>Bienvenido a Credencializacion Digital</span>
-                                <h1 class="sub">Administrativos</h1>
-                            </div>
-                        </div>
-                        <div class="form">
-                            <div class="thumbnail"><i class="fa-solid fa-user fa-4x"></i>
-                            </div>
-                            <form class="myForm">
-                                <input id="matri" type="text" placeholder="Matricula"  />
-                                <input id="contra" type="password" placeholder="Contraseña"  />
-                                
-                                <Link to="/GestionUsuarios">
-                                <button type="submit">
-                                login</button></Link>
-                                
+            <div>
+            <div className="container">
+                <div className="info">
+                    <h1 className="titulos">Universidad Politecnica De Tapachula</h1>
+                    <h1 className="sub">Otros</h1>
+                </div>
+            </div>
+            <div className="form">
+                <div className="thumbnail">
+                    <i className="fa-solid fa-user fa-4x"></i>
+                </div>
 
-                                
-                                <p class="message">Recuerda iniciar sesion con tu matricula proporcionada por la universidad.</p>
-                            </form>
-                        </div>
-                    </div>
-                }
-            </body>
-            <Footer/>
+                <form className="myForm" onSubmit={handleLogin}>
+                    <input id="matri" type="text" placeholder="Numero de control" value={numero_control} onChange={handleMatriculaChange} required />
+                    <input id="contra" type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} required />
+                    <button type="submit">Iniciar sesión</button>
+                    <p className="message">
+                        Recuerda iniciar sesión con tu NUMERO DE CONTROL.
+                    </p>
+                    {error && <p>{error}</p>}
+                </form>
+
+            </div>
         </div>
-    );
+            </body>
+        </div>
+    )
 }
 
-export default LoginAdmin;
+export default LoginOtros;
