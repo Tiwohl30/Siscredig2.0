@@ -13,7 +13,7 @@ function GestionOtros(){
 
   useEffect(() => {
     // Hacer la solicitud HTTP a la API utilizando Axios
-    axios.get('http://127.0.0.1:8000/api/otros')
+    axios.get('https://siscredig-api.onrender.com/api/otros')
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setOtros(response.data);
@@ -26,7 +26,7 @@ function GestionOtros(){
 
   const handleDelete = (numero_control) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/otros/${numero_control}`)
+      .delete(`https://siscredig-api.onrender.com/api/otros/${numero_control}`)
       .then((response) => {
         // Verificar la respuesta de la API y actualizar la lista de Otros
         if (response.status === 200) {
@@ -50,7 +50,7 @@ function GestionOtros(){
     const nuevoEstado = !estadoActual;
   
     axios
-      .patch(`http://127.0.0.1:8000/api/otros/${numero_control}/`, {
+      .patch(`https://siscredig-api.onrender.com/api/otros/${numero_control}/`, {
         credencial_activa: nuevoEstado,
       })
       .then((response) => {

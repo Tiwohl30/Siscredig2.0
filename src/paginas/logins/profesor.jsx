@@ -23,10 +23,10 @@ function LoginProfesor({ onLogin }){
         event.preventDefault();
     
         try {
-        const response = await axios.post('http://127.0.0.1:8000/loginD/', { numero_control, password });
+        const response = await axios.post('https://siscredig-api.onrender.com/loginD/', { numero_control, password });
    
         // Obtén los datos del usuario autenticado
-        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/docentes/${numero_control}`);
+        const userDataResponse = await axios.get(`https://siscredig-api.onrender.com/api/docentes/${numero_control}`);
         const userData = {
           ...userDataResponse.data,
           tipoLogin: 'docentes', // Agrega el tipo de login al objeto userData

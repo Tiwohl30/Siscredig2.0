@@ -2,6 +2,7 @@ import '../../css/IniSes.css';
 import { useNavigate  } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../css/background.css';
 
 function LoginAlumno({ onLogin }){
 
@@ -23,10 +24,10 @@ function LoginAlumno({ onLogin }){
         event.preventDefault();
     
         try {
-        const response = await axios.post('http://127.0.0.1:8000/login/', { matricula, password });
+        const response = await axios.post('https://siscredig-api.onrender.com/login/', { matricula, password });
   
   
-        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/alumnos/${matricula}`);
+        const userDataResponse = await axios.get(`https://siscredig-api.onrender.com/api/alumnos/${matricula}`);
         const userData = {
             ...userDataResponse.data,
             tipoLogin: 'alumnos', // Agrega el tipo de login al objeto userData
@@ -47,7 +48,7 @@ function LoginAlumno({ onLogin }){
       
 
     return(
-        <div>
+        <div className='fondo-componente'>
             <body>
             <div>
             <div className="container">

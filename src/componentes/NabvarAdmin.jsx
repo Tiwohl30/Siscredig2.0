@@ -32,7 +32,7 @@ function NabvarAdmin({ isAdminLoggedIn, setIsAdminLoggedIn }) {
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Mensajes">Mensajeria</Link>
+                            <Link className="nav-link" to="/AltaAlumnos">Alta alumnos</Link>
                         </li>
                     </ul>)}
 

@@ -2,6 +2,7 @@ import '../../css/IniSes.css';
 import { useNavigate  } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../css/background.css';
 
 function LoginOtros({ onAdminLogin }){
 
@@ -23,11 +24,11 @@ function LoginOtros({ onAdminLogin }){
         event.preventDefault();
     
         try {
-        const response = await axios.post('http://127.0.0.1:8000/loginA/', { numero_control, password });
+        const response = await axios.post('https://siscredig-api.onrender.com/loginA/', { numero_control, password });
       
         
         // Obtén los datos del usuario autenticado
-        const userDataResponse = await axios.get(`http://127.0.0.1:8000/api/administrativos/${numero_control}`);
+        const userDataResponse = await axios.get(`https://siscredig-api.onrender.com/api/administrativos/${numero_control}`);
         const userData = {
             ...userDataResponse.data,
             tipoLogin: 'admin', // Agrega el tipo de login al objeto userData
@@ -48,7 +49,7 @@ function LoginOtros({ onAdminLogin }){
       
 
     return(
-        <div>
+        <div className='fondo-componente'>
             <body>
             <div>
             <div className="container">

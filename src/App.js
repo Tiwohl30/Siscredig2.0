@@ -9,12 +9,12 @@ import LoginAdmin from './paginas/logins/administradores';
 import Accesos from './paginas/accesos';
 import { EscanerQR } from './paginas/vistaAdmin/EscanearQR';
 import AdminGestionUsuarios from './paginas/vistaAdmin/adminGestionUser';
-
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import LoginProfesor from './paginas/logins/profesor';
 import NavAlumnos from './componentes/NavAlumnos';
 import LoginOtros from './paginas/logins/otros';
 import NabvarAdmin from './componentes/NabvarAdmin';
+import RegistroAlumnos from './paginas/vistaAdmin/AltaUsuarios';
 
 
 
@@ -72,8 +72,8 @@ import NabvarAdmin from './componentes/NabvarAdmin';
             <Route path="/EscanearQR"
             element={<EscanerQR isAdminLoggedIn={isAdminLoggedIn}/>} />
             
-            {/* <Route path="/Mensajes" 
-            element={<AdminMensajes isAdminLoggedIn={isAdminLoggedIn}/>} /> */}
+             <Route path="/AltaAlumnos" 
+            element={<RegistroAlumnos isAdminLoggedIn={isAdminLoggedIn}/>} /> 
           </Routes>
         </BrowserRouter>
         </>

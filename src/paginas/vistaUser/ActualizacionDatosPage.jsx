@@ -23,7 +23,7 @@ function ActualizacionDatos({userData}) {
     try {
       if (userData.tipoLogin === 'alumnos') {
         // Realiza la petición PATCH para docente
-        const response = await axios.patch(`http://127.0.0.1:8000/api/alumnos/${userData.matricula}/`, {
+        const response = await axios.patch(`https://siscredig-api.onrender.com/api/alumnos/${userData.matricula}/`, {
           nombre,
           apellido_paterno,
           apellido_materno,
@@ -39,7 +39,7 @@ function ActualizacionDatos({userData}) {
         console.log(response.data);
       } else if (userData.tipoLogin === 'docentes') {
         // Realiza la petición PATCH para alumno
-        const response = await axios.patch(`http://127.0.0.1:8000/api/docentes/${userData.numero_control}/`, {
+        const response = await axios.patch(`https://siscredig-api.onrender.com/api/docentes/${userData.numero_control}/`, {
           nombre,
           apellido_paterno,
           apellido_materno,
@@ -55,7 +55,7 @@ function ActualizacionDatos({userData}) {
 
       } else if (userData.tipoLogin === 'otros') {
         // Realiza la petición PATCH para otros
-        const response = await axios.patch(`http://127.0.0.1:8000/api/otros/${userData.numero_control}/`, {
+        const response = await axios.patch(`https://siscredig-api.onrender.com/api/otros/${userData.numero_control}/`, {
           nombre: nombre,
           apellido_paterno: apellido_paterno,
           apellido_materno: apellido_materno,

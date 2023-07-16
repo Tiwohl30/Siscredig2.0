@@ -1,52 +1,29 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import Footer from "../../componentes/footer";
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
+
 
 
 
 
 function Reposicion({ isLoggedIn, userData }) {
 
-const [motivo, setMotivo] = useState('');
-  const { nombre, matricula, carrera, cuatrimestre, email} = userData;
 
+  const form = useRef();
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    
-    // Construye los datos del formulario
-    const formData = {
-      destinatario: '221025@uptapachula.edu.mx',
-      asunto: `Solicitud de reposicion de credencial - ${matricula ? matricula : userData.numero_control}`,
-      
-      contenido: `de : ${email}
-      nombre: ${nombre} ${userData.apellido_paterno} ${userData.apellido_materno}, 
-      usuario tipo: ${userData.tipoLogin }
-      ${userData.cargo ? "Area: " + userData.area : " "} 
-      ${userData.cargo ? "Cargo: " + userData.cargo : " "} 
-      ${userData.carrera ? userData.carrera : " "}
-      ${cuatrimestre ? "Cuatrimestre:" + cuatrimestre : " "} 
-      Motivo de la solicitud de reposicion de credencial: "${motivo}"`,
-    };
-  
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/send-email/', formData);
-      console.log(response.data);
 
-      const text = `http://127.0.0.1:8000/api/${userData.tipoLogin}/${matricula?matricula:userData.numero_control}/`
-      console.log(text)
-      const des = await axios.patch(text, {
-        credencial_activa: false
+    form.current.elements.message.value += `\n \n \n Matricula / no. control: ${userData.matricula?userData.matricula:userData.numero_control} \nCarrera: ${userData.carrera}\nCuatrimestre : ${userData.cuatrimestre}`;
+        
+    emailjs.sendForm('service_7jgr6ik', 'template_zsfp2y7', form.current, 'WfcDUPKDYx17s-XYz')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
       });
-
-      console.log(des)
-      
-      
-    } catch (error) {
-      console.error(error);
-      // Maneja el error en caso de que ocurra algún problema
-    }
   };
+
 
 
   return (
@@ -55,73 +32,26 @@ const [motivo, setMotivo] = useState('');
         <h2 className="text-center mb-4">Solicitar reposición de credencial</h2>
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-8 col-sm-10">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="nombre">Nombre completo:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nombre"
-                  name="nombre"
-                  value={nombre + " " + userData.apellido_paterno + " " + userData.apellido_materno} // Llena automáticamente el valor del campo con userData.nombre
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="matricula">Matrícula / numero de control:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="matricula"
-                  name="matricula"
-                  value={matricula ? matricula : userData.numero_control} // Llena automáticamente el valor del campo con userData.matricula
-                  required
-                />
-              </div>
 
-              { carrera&&(
-              <div className="form-group">
-                <label htmlFor="carrera">Carrera:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="carrera"
-                  name="carrera"
-                  value={carrera} // Llena automáticamente el valor del campo con userData.carrera
-                  required
-                />
-              </div>)}
 
-                { cuatrimestre &&(
-              <div className="form-group">
-                <label htmlFor="cuatrimestre">Cuatrimestre:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cuatrimestre"
-                  name="cuatrimestre"
-                  value={cuatrimestre} // Llena automáticamente el valor del campo con userData.cuatrimestre
-                  required
-                />
-              </div>)}
-
-              <div className="form-group">
-                <label htmlFor="motivo">Motivo de la reposición:</label>
-                <textarea
-                  className="form-control"
-                  id="motivo"
-                  name="motivo"
-                  rows="3"
-                  value={motivo} onChange={(e) => setMotivo(e.target.value)}
-                  required
-                ></textarea>
-                <br />
-                Se le dará seguimiento a tu solicitud por medio de correo electronico, asegurate de revisarlo constantemente.
-              </div>{}
-              <button type="submit" className="btn btn-primary btn-block my-4" disabled={!userData.credencial_activa}>
-                Enviar solicitud
-              </button>
-            </form>
+          <form ref={form} onSubmit={sendEmail} className="needs-validation" noValidate>
+                <div className="form-group">
+                  <label htmlFor="user_name">Nombre</label>
+                  <input type="text" name="user_name" className="form-control" required value={`${userData.nombre} ${userData.apellido_paterno} ${userData.apellido_materno}`} />
+                  <div className="invalid-feedback"> </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="user_email">Correo</label>
+                  <input type="email" name="user_email" className="form-control" value={`${userData.email}`}required />
+                  <div className="invalid-feedback"></div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message">Motivo de la solicitud: </label>
+                  <textarea name="message" className="form-control" required></textarea>
+                  <div className="invalid-feedback"> </div>
+                </div>
+                <button type="submit" className="btn btn-primary">Send</button>
+          </form>
           </div>
         </div>
       </div>

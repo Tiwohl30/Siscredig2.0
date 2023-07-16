@@ -13,7 +13,7 @@ function GestionAlumnos(){
 
   useEffect(() => {
     // Hacer la solicitud HTTP a la API utilizando Axios
-    axios.get('http://127.0.0.1:8000/api/alumnos')
+    axios.get('https://siscredig-api.onrender.com/api/alumnos')
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setEstudiantes(response.data);
@@ -26,7 +26,7 @@ function GestionAlumnos(){
 
   const handleDelete = (matricula) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/alumnos/${matricula}`)
+      .delete(`https://siscredig-api.onrender.com/api/alumnos/${matricula}`)
       .then((response) => {
         // Verificar la respuesta de la API y actualizar la lista de estudiantes
         if (response.status === 200) {
@@ -50,7 +50,7 @@ function GestionAlumnos(){
     const nuevoEstado = !estadoActual;
   
     axios
-      .patch(`http://127.0.0.1:8000/api/alumnos/${matricula}/`, {
+      .patch(`https://siscredig-api.onrender.com/api/alumnos/${matricula}/`, {
         credencial_activa: nuevoEstado,
       })
       .then((response) => {

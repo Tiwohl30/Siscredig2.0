@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/opcion.css';
+import '../img/fondo.jpeg';
 import Button from '@mui/material/Button';
 import Footer from '../componentes/footer'
 import BarraAcceso from '../componentes/bar';
@@ -8,16 +9,11 @@ import { Link } from "react-router-dom"
 
 function Accesos() {
 
-    const containerStyle = {
-        backgroundImage: "url('../img/fondo.jpeg')",
-        // Ajusta los estilos adicionales según tus necesidades
-      };
+
     
 
     return (
-        <div style={{ backgroundImage: "url('https://img.freepik.com/vector-gratis/fondo-morado-rosa-nublado_91008-257.jpg?w=1060&t=st=1689448798~exp=1689449398~hmac=962616d5cef5f04de8cbb8452ade4971fa4ad0cdc6198f1cc1303cc6e62e3129'),",
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover' }}>
+        <div className='fondo-componente'>
             <BarraAcceso/>
             <div className="separador" />
             

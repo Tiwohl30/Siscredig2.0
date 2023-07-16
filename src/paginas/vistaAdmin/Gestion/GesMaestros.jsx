@@ -13,7 +13,7 @@ function GestionMaestros(){
 
   useEffect(() => {
     // Hacer la solicitud HTTP a la API utilizando Axios
-    axios.get('http://127.0.0.1:8000/api/docentes')
+    axios.get('https://siscredig-api.onrender.com/api/docentes')
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setMaestros(response.data);
@@ -26,7 +26,7 @@ function GestionMaestros(){
 
   const handleDelete = (numero_control) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/Maestros/${numero_control}`)
+      .delete(`https://siscredig-api.onrender.com/api/Maestros/${numero_control}`)
       .then((response) => {
         // Verificar la respuesta de la API y actualizar la lista de Maestros
         if (response.status === 200) {
@@ -50,7 +50,7 @@ function GestionMaestros(){
     const nuevoEstado = !estadoActual;
   
     axios
-      .patch(`http://127.0.0.1:8000/api/Maestros/${numero_control}/`, {
+      .patch(`https://siscredig-api.onrender.com/api/Maestros/${numero_control}/`, {
         credencial_activa: nuevoEstado,
       })
       .then((response) => {
