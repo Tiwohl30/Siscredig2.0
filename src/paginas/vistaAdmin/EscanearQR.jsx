@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useZxing } from "react-zxing";
 import NabvarAdmin from "../../componentes/NabvarAdmin";
+import axios from "axios"
 
 
 export const EscanerQR = () => {

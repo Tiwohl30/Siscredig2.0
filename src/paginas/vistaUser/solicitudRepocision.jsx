@@ -115,6 +115,8 @@ const [motivo, setMotivo] = useState('');
                   value={motivo} onChange={(e) => setMotivo(e.target.value)}
                   required
                 ></textarea>
+                <br />
+                Se le dará seguimiento a tu solicitud por medio de correo electronico, asegurate de revisarlo constantemente.
               </div>{}
               <button type="submit" className="btn btn-primary btn-block my-4" disabled={!userData.credencial_activa}>
                 Enviar solicitud

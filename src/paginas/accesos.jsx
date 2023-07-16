@@ -7,8 +7,17 @@ import { Link } from "react-router-dom"
 
 
 function Accesos() {
+
+    const containerStyle = {
+        backgroundImage: "url('../img/fondo.jpeg')",
+        // Ajusta los estilos adicionales según tus necesidades
+      };
+    
+
     return (
-        <>
+        <div style={{ backgroundImage: "url('https://img.freepik.com/vector-gratis/fondo-morado-rosa-nublado_91008-257.jpg?w=1060&t=st=1689448798~exp=1689449398~hmac=962616d5cef5f04de8cbb8452ade4971fa4ad0cdc6198f1cc1303cc6e62e3129'),",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover' }}>
             <BarraAcceso/>
             <div className="separador" />
             
@@ -53,7 +62,7 @@ function Accesos() {
             </div>
             <div className='separator'></div>
             <Footer/>
-        </>
+        </div>
     );
 }
 

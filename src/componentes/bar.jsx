@@ -14,7 +14,7 @@ function BarraAcceso() {
                 <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Typography variant="h6" sx={{ fontFamily: 'monospace', fontWeight: 700, color: 'white' }}>
-                            SISCREDI UPTAP
+                            SISCREDIG UPTAP
                         </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
