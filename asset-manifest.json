@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Siscredig2.0/static/css/main.07e1d308.css",
+    "main.js": "/Siscredig2.0/static/js/main.1b7ad731.js",
+    "static/media/fondo.jpeg": "/Siscredig2.0/static/media/fondo.5ae4a84310c1cd8175d8.jpeg",
+    "static/media/avatar.jpg": "/Siscredig2.0/static/media/avatar.4f2e12f58ed67ab49fdc.jpg",
+    "index.html": "/Siscredig2.0/index.html",
+    "main.07e1d308.css.map": "/Siscredig2.0/static/css/main.07e1d308.css.map",
+    "main.1b7ad731.js.map": "/Siscredig2.0/static/js/main.1b7ad731.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07e1d308.css",
+    "static/js/main.1b7ad731.js"
+  ]
+}
