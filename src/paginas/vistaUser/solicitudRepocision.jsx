@@ -50,7 +50,7 @@ function Reposicion({ isLoggedIn, userData }) {
                   <textarea name="message" className="form-control" required></textarea>
                   <div className="invalid-feedback"> </div>
                 </div>
-                <button type="submit" className="btn btn-primary">Send</button>
+                <button type="submit" className="">Send</button>
           </form>
           </div>
         </div>

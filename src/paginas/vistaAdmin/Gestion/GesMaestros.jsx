@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-
+import '../../../css/opcion.css'
 
 function GestionMaestros(){
 
@@ -94,7 +94,7 @@ function GestionMaestros(){
                   <div className="card-body">
                     <h5 className="card-title">Maestros</h5>
                     <p className="card-text">Número total de Maestros: X</p>
-                      <button type="button" className="btn btn-primary" data-toggle="collapse" data-target="#demo1">Simple collapsible</button>
+                      <button type="button" className="btn" data-toggle="collapse" data-target="#demo1">Desplegar</button>
                       <div id="demo1" className="collapse">
 
                       <br />
@@ -141,7 +141,7 @@ function GestionMaestros(){
                             
                             <button
                                 onClick={() => toggleCredencialActiva(maestro.numero_control, maestro.credencial_activa)}
-                                className="btn btn-primary"
+                                className="btn"
                               >
                                 {maestro.credencial_activa ? 'Desactivar' : 'Activar'}
                               </button>

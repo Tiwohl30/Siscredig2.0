@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from "../../componentes/footer";
-
+import '../../css/barras.css'
 function VistaPrevia({ userData }) {
 
 
@@ -11,7 +11,7 @@ function VistaPrevia({ userData }) {
         
             <div className="container" style={{ marginBottom: '100px' }}>
                 <div className="card mt-5">
-                    <div className="card-header bg-dark text-white">
+                    <div className="card-header barra text-white">
                         <h5 className="mb-0">Vista previa de credencial</h5>
                     </div>
                     <div className="card-body">
@@ -81,7 +81,7 @@ function VistaPrevia({ userData }) {
 
             <div className="container" style={{ marginBottom: '200px' }}>
                 <div className="card mt-5">
-                    <div className="card-header bg-dark text-white">
+                    <div className="card-header barra text-white">
                         <h5 className="mb-0">Contacto de emergencia</h5>
                     </div>
                     <div className="card-body">

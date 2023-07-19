@@ -94,7 +94,7 @@ function GestionAlumnos(){
                   <div className="card-body">
                     <h5 className="card-title">Estudiantes</h5>
                     <p className="card-text">Número total de estudiantes: X</p>
-                      <button type="button" className="btn btn-primary" data-toggle="collapse" data-target="#demo2">Simple collapsible</button>
+                      <button type="button" className="btn" data-toggle="collapse" data-target="#demo2">Desplegar</button>
                       <div id="demo2" className="collapse">
 
                       <br />
@@ -142,7 +142,7 @@ function GestionAlumnos(){
                             
                             <button
                                 onClick={() => toggleCredencialActiva(estudiante.matricula, estudiante.credencial_activa)}
-                                className="btn btn-primary"
+                                className="btn"
                               >
                                 {estudiante.credencial_activa ? 'Desactivar' : 'Activar'}
                               </button>

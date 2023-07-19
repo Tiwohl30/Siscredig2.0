@@ -94,7 +94,7 @@ function GestionOtros(){
                   <div className="card-body">
                     <h5 className="card-title">Otros</h5>
                     <p className="card-text">Número total de Otros: X</p>
-                      <button type="button" className="btn btn-primary" data-toggle="collapse" data-target="#demo3">Simple collapsible</button>
+                      <button type="button" className="btn" data-toggle="collapse" data-target="#demo3">Desplegar</button>
                       <div id="demo3" className="collapse">
 
                       <br />
@@ -141,7 +141,7 @@ function GestionOtros(){
                             
                             <button
                                 onClick={() => toggleCredencialActiva(otro.numero_control, otro.credencial_activa)}
-                                className="btn btn-primary"
+                                className="btn"
                               >
                                 {otro.credencial_activa ? 'Desactivar' : 'Activar'}
                               </button>

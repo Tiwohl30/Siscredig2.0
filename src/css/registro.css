@@ -1,0 +1,36 @@
+.container {
+    padding: 20px;
+}
+
+.contenedor {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    margin: 20px auto 20px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+}
+
+.titulo {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.formularR {
+    padding: 20px;
+    align-items: center;
+}
+
+.titlename {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.enter {
+    border-color: darkorchid;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
