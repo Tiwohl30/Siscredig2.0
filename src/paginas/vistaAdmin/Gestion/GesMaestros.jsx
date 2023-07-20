@@ -8,6 +8,7 @@ function GestionMaestros(){
   const [Maestros, setMaestros] = useState([]);
   const [filtroNumero_control, setFiltroNumero_control] = useState('');
   const [MaestrosFiltrados, setMaestrosFiltrados] = useState([]);
+  const [cantidadRegistrosM, setCantidadRegistrosM] = useState(0);
 
 
 
@@ -17,6 +18,7 @@ function GestionMaestros(){
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setMaestros(response.data);
+        setCantidadRegistrosM(response.data.length)
       })
       .catch(error => {
         console.error(error);
@@ -93,7 +95,7 @@ function GestionMaestros(){
                 <div className="card mb-4">
                   <div className="card-body">
                     <h5 className="card-title">Maestros</h5>
-                    <p className="card-text">Número total de Maestros: X</p>
+                    <p className="card-text">Número total de Maestros: {cantidadRegistrosM}</p>
                       <button type="button" className="btn" data-toggle="collapse" data-target="#demo1">Desplegar</button>
                       <div id="demo1" className="collapse">
 

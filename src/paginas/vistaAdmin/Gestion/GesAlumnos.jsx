@@ -8,6 +8,7 @@ function GestionAlumnos(){
   const [estudiantes, setEstudiantes] = useState([]);
   const [filtroMatricula, setFiltroMatricula] = useState('');
   const [estudiantesFiltrados, setEstudiantesFiltrados] = useState([]);
+  const [cantidadRegistrosA, setCantidadRegistrosA] = useState(0);
 
 
 
@@ -17,6 +18,7 @@ function GestionAlumnos(){
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setEstudiantes(response.data);
+        setCantidadRegistrosA(response.data.length);
       })
       .catch(error => {
         console.error(error);
@@ -93,7 +95,7 @@ function GestionAlumnos(){
                 <div className="card mb-4">
                   <div className="card-body">
                     <h5 className="card-title">Estudiantes</h5>
-                    <p className="card-text">Número total de estudiantes: X</p>
+                    <p className="card-text">Número total de estudiantes: {cantidadRegistrosA}</p>
                       <button type="button" className="btn" data-toggle="collapse" data-target="#demo2">Desplegar</button>
                       <div id="demo2" className="collapse">
 

@@ -89,6 +89,33 @@ const RegistroAlumnos = () => {
             </div>
           </div>
 
+          <div className='row'>
+
+          <div className="col-md-6">
+              <div className="form-group">
+                <label className="titlename">
+                  Email:
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control"/>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              
+            <div className="col-md-6">
+              <div className="form-group">
+                <label className="titlename">
+                  Contraseña:
+                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
+                </label>
+              </div>
+            </div>
+
+
+          </div>
+
+          </div>
+
           <br />
 
           <div className="row">
@@ -254,29 +281,11 @@ const RegistroAlumnos = () => {
                 </label>
               </div>
             </div>
-
-            <div className="col-md-6">
-              <div className="form-group">
-                <label className="titlename">
-                  Email:
-                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control"/>
-                </label>
-              </div>
-            </div>
           </div>
 
           <br />
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label className="titlename">
-                  Contraseña:
-                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
-                </label>
-              </div>
-            </div>
-          </div>
+          
 
           <button className="btn" type="submit">Registrar</button>
         </form>

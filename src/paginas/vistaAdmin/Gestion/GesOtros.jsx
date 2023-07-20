@@ -8,6 +8,7 @@ function GestionOtros(){
   const [Otros, setOtros] = useState([]);
   const [filtroNumero_control, setFiltroNumero_control] = useState('');
   const [OtrosFiltrados, setOtrosFiltrados] = useState([]);
+  const [cantidadRegistrosO, setCantidadRegistrosO] = useState(0);
 
 
 
@@ -17,6 +18,7 @@ function GestionOtros(){
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setOtros(response.data);
+        setCantidadRegistrosO(response.data.length)
       })
       .catch(error => {
         console.error(error);
@@ -93,7 +95,7 @@ function GestionOtros(){
                 <div className="card mb-4">
                   <div className="card-body">
                     <h5 className="card-title">Otros</h5>
-                    <p className="card-text">Número total de Otros: X</p>
+                    <p className="card-text">Número total de Otros: {cantidadRegistrosO}</p>
                       <button type="button" className="btn" data-toggle="collapse" data-target="#demo3">Desplegar</button>
                       <div id="demo3" className="collapse">
 
@@ -115,7 +117,8 @@ function GestionOtros(){
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
                             <th>Correo</th>
-                            <th>Telefono</th>
+                            <th>Area</th>
+                            <th>Cargo</th>
                             <th>Cred. Activa</th>
                           </tr>
                         </thead>
@@ -127,8 +130,8 @@ function GestionOtros(){
                           <td>{otro.apellido_paterno}</td>
                           <td>{otro.apellido_materno}</td>
                           <td>{otro.email}</td>
-                          
-                          <td>{otro.telefono}</td>
+                          <td>{otro.area}</td>
+                          <td>{otro.cargo}</td>
                           <td>{otro.credencial_activa ? 'Sí' : 'No'}</td>
                           <td>
                             <button

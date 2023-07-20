@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 //import Loading from '../../componentes/buttons/circularColor';
 import Footer from "../../componentes/footer";
-import { Button } from 'react-bootstrap';
 import '../../css/opcion.css';
 
 function ActualizacionDatos({userData}) {
@@ -83,6 +82,7 @@ function ActualizacionDatos({userData}) {
           <div className="col-md-6">
             <h2>Actualización de datos del estudiante</h2>
             <form onSubmit={handleUpdateData}>
+              <br />
               Los datos se veran reflejados una vez que vuelvas a iniciar sesion en la pagina:)
               <br />
               

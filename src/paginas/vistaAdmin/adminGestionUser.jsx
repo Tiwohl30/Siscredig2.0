@@ -7,14 +7,21 @@ import GestionOtros from './Gestion/GesOtros';
 
 function AdminGestionUsuarios() {
 
-
+    const estiloComponente = {
+        backgroundImage: 'url("https://storage.googleapis.com/pai-images/2afb4ff7181d468d87de565926efd7dc.jpeg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+       
+      };
+    
 
 
 
 
 
     return (
-        <div>
+        <div style={estiloComponente}>
             <NabvarAdmin />
             <div className="container">
                 <h1 className="mt-4">Resumen</h1>
