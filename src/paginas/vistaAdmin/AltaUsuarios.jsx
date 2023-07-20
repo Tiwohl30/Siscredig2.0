@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../css/registro.css'
 import Footer from '../../componentes/footer'
 import NabvarAdmin from '../../componentes/NabvarAdmin';
+import background from '../../img/back2.jpeg'
 
 const RegistroAlumnos = () => {
   const [matricula, setMatricula] = useState('');
@@ -63,11 +64,27 @@ const RegistroAlumnos = () => {
     }
   };
 
+
+  const estiloComponente = {
+    
+      
+      backgroundImage: `url(${background})`,
+      position: 'absolute',
+      backgroundSize: 'cover', // Otras propiedades de estilo para el fondo, según sea necesario.
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      width: '100%',
+      
+      };
+    
+
   return (
 
-    <div>
-      <div className="container contenedor">
+    <div style={estiloComponente}>
+      <div >
       <NabvarAdmin />
+      
+      <div className="container contenedor">
       <h1>Datos del Alumno</h1>
         <form onSubmit={handleSubmit}>
           <div className="row">
@@ -282,7 +299,7 @@ const RegistroAlumnos = () => {
               </div>
             </div>
           </div>
-
+        
           <br />
 
           
@@ -291,6 +308,7 @@ const RegistroAlumnos = () => {
         </form>
       </div>
       <Footer/>
+      </div>
     </div>
 
 

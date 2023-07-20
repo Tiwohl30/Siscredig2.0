@@ -3,6 +3,7 @@ import axios from 'axios';
 //import Loading from '../../componentes/buttons/circularColor';
 import Footer from "../../componentes/footer";
 import '../../css/opcion.css';
+import back from '../../img/greenback.svg'
 
 function ActualizacionDatos({userData}) {
   const [nombre, setNombre] = useState('');
@@ -75,8 +76,17 @@ function ActualizacionDatos({userData}) {
     }
   };
 
+
+  const estiloComponente = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+   
+  };
+
   return (
-    <div>
+    <div style={estiloComponente}>
       <div className="container my-5">
         <div className="row">
           <div className="col-md-6">

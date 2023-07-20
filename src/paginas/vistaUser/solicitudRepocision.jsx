@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Footer from "../../componentes/footer";
 import emailjs from '@emailjs/browser';
-
+import back from '../../img/greenback.svg'
 
 
 
@@ -26,8 +26,17 @@ function Reposicion({ isLoggedIn, userData }) {
 
 
 
+
+  const estiloComponente = {
+    backgroundImage: `url(${back})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+   
+  };
+
   return (
-    <>
+    <div style={estiloComponente}>
       <div className="container my-4">
         <h2 className="text-center mb-4">Solicitar reposición de credencial</h2>
         <div className="row justify-content-center">
@@ -56,7 +65,7 @@ function Reposicion({ isLoggedIn, userData }) {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

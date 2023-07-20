@@ -45,7 +45,6 @@ function NabvarAdmin({ isAdminLoggedIn, setIsAdminLoggedIn }) {
                 )}
                 </div>
             </nav>
-
         </div>
     )
 } else { }}

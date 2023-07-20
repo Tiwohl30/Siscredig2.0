@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useZxing } from "react-zxing";
 import NabvarAdmin from "../../componentes/NabvarAdmin";
 import axios from "axios"
+import background from "../../img/back2.jpeg"
 
 
 export const EscanerQR = () => {
+
 
 const [alumnoData, setAlumnoData] = useState(null);
 var valorDespuesDeMatricula = ""
@@ -52,7 +54,21 @@ const [result, setResult] = useState("");
     }
   }, [valorDespuesDeMatricula]);
 
+
+  const estiloComponente = {
+    
+    backgroundImage: `url(${background})`,
+    backgroundSize: 'cover', // Otras propiedades de estilo para el fondo, según sea necesario.
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    width: '100%',
+    position: 'absolute'
+    
+    };
+
   return (
+
+    <div style={estiloComponente}>
     <div className="text-center">
     <NabvarAdmin/>
       <video className="p-5" ref={ref}/>
@@ -170,6 +186,7 @@ const [result, setResult] = useState("");
             </div>
         </div>
     )}
+    </div>
     </div>
   );
 

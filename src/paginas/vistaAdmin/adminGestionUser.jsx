@@ -4,11 +4,12 @@ import NabvarAdmin from '../../componentes/NabvarAdmin';
 import GestionAlumnos from './Gestion/GesAlumnos';
 import GestionMaestros from './Gestion/GesMaestros';
 import GestionOtros from './Gestion/GesOtros';
+import back2 from '../../img/back2.jpeg'
 
 function AdminGestionUsuarios() {
 
     const estiloComponente = {
-        backgroundImage: 'url("https://storage.googleapis.com/pai-images/2afb4ff7181d468d87de565926efd7dc.jpeg")',
+        backgroundImage: `url(${back2})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',

@@ -1,13 +1,23 @@
 import React from 'react';
 import Footer from "../../componentes/footer";
 import '../../css/barras.css'
+import back from '../../img/greenback.svg'
+
 function VistaPrevia({ userData }) {
 
+
+    const estiloComponente = {
+        backgroundImage: `url(${back})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+       
+      };
 
     console.log(userData.tipoLogin)
     
     return (
-        <>
+        <div style={estiloComponente}>
         
             <div className="container" style={{ marginBottom: '100px' }}>
                 <div className="card mt-5">
@@ -38,6 +48,22 @@ function VistaPrevia({ userData }) {
                                     <label className="col-sm-3 col-form-label">Cuatrimestre:</label>
                                     <div className="col-sm-9">
                                         <input type="text" className="form-control" value={userData.cuatrimestre} readOnly />
+                                    </div>
+                                </div>)}
+
+                                { userData.area &&(
+                                <div className="form-group row">
+                                    <label className="col-sm-3 col-form-label">Area:</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={userData.area} readOnly />
+                                    </div>
+                                </div>)}
+
+                                { userData.cargo &&(
+                                <div className="form-group row">
+                                    <label className="col-sm-3 col-form-label">Cargo:</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" className="form-control" value={userData.cargo} readOnly />
                                     </div>
                                 </div>)}
 
@@ -115,7 +141,7 @@ function VistaPrevia({ userData }) {
                 </div>
             </div>
         <Footer/>
-        </>
+        </div>
     );
 }
 

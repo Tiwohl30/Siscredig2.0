@@ -82,6 +82,9 @@ function GestionAlumnos(){
   }, [estudiantes, filtroMatricula]);
 
 
+
+
+
     
         return (
             <div>

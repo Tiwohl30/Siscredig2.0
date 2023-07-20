@@ -70,10 +70,10 @@ import RegistroAlumnos from './paginas/vistaAdmin/AltaUsuarios';
             element={isAdminLoggedIn ? <AdminGestionUsuarios isAdminLoggedIn={isAdminLoggedIn} userData={userData}/> : <Navigate to="/" />} />
 
             <Route path="/EscanearQR"
-            element={<EscanerQR isAdminLoggedIn={isAdminLoggedIn}/>} />
+            element={isAdminLoggedIn ? <EscanerQR isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} />
             
              <Route path="/AltaAlumnos" 
-            element={<RegistroAlumnos isAdminLoggedIn={isAdminLoggedIn}/>} /> 
+            element={isAdminLoggedIn ? <RegistroAlumnos isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} /> 
           </Routes>
         </BrowserRouter>
         </>
