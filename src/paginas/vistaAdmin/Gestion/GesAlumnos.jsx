@@ -9,56 +9,63 @@ function GestionAlumnos(){
   const [filtroMatricula, setFiltroMatricula] = useState('');
   const [estudiantesFiltrados, setEstudiantesFiltrados] = useState([]);
   const [cantidadRegistrosA, setCantidadRegistrosA] = useState(0);
+  const [reloadKey, setReloadKey] = useState(0); // Estado para forzar la recarga
 
-
+  const handleRecargarClick = () => {
+    setReloadKey(reloadKey + 1); // Incrementa el valor del estado para forzar la recarga
+  };
 
   useEffect(() => {
-    // Hacer la solicitud HTTP a la API utilizando Axios
-    axios.get('https://siscredig-api.onrender.com/api/alumnos')
+    axios
+      .get('https://siscredig-api.onrender.com/api/alumnos')
       .then(response => {
-        // Actualizar el estado con los datos recibidos de la API
         setEstudiantes(response.data);
         setCantidadRegistrosA(response.data.length);
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [reloadKey]); // Agregamos reloadKey al array de dependencias para que la solicitud se realice nuevamente al cambiar el estado y forzar la recarga
 
+  useEffect(() => {
+    const estudiantesFiltrados = estudiantes.filter(estudiante =>
+      estudiante.matricula.toString().includes(filtroMatricula)
+    );
+    setEstudiantesFiltrados(estudiantesFiltrados);
+  }, [estudiantes, filtroMatricula, reloadKey]);
 
-  const handleDelete = (matricula) => {
+  const handleDelete = matricula => {
     axios
       .delete(`https://siscredig-api.onrender.com/api/alumnos/${matricula}`)
-      .then((response) => {
-        // Verificar la respuesta de la API y actualizar la lista de estudiantes
+      .then(response => {
         if (response.status === 200) {
+          // Eliminar el estudiante del estado estudiantesFiltrados
           const updatedEstudiantes = estudiantesFiltrados.filter(
-            (estudiante) => estudiante.matricula !== matricula
+            estudiante => estudiante.matricula !== matricula
           );
           setEstudiantesFiltrados(updatedEstudiantes);
+
+          // Actualizar también el estado estudiantes para reflejar el cambio
+          setEstudiantes(estudiantes.filter(estudiante => estudiante.matricula !== matricula));
         } else {
           console.error('Error al eliminar estudiante');
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
       });
   };
 
-
-
-
   const toggleCredencialActiva = (matricula, estadoActual) => {
     const nuevoEstado = !estadoActual;
-  
+
     axios
       .patch(`https://siscredig-api.onrender.com/api/alumnos/${matricula}/`, {
         credencial_activa: nuevoEstado,
       })
-      .then((response) => {
-        // Verificar la respuesta de la API y actualizar el estado del estudiante
+      .then(response => {
         if (response.status === 200) {
-          const updatedEstudiantes = estudiantesFiltrados.map((estudiante) => {
+          const updatedEstudiantes = estudiantesFiltrados.map(estudiante => {
             if (estudiante.matricula === matricula) {
               return { ...estudiante, credencial_activa: nuevoEstado };
             }
@@ -69,7 +76,7 @@ function GestionAlumnos(){
           console.error('Error al cambiar el estado de la credencial');
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
       });
   };
@@ -80,8 +87,6 @@ function GestionAlumnos(){
     );
     setEstudiantesFiltrados(estudiantesFiltrados);
   }, [estudiantes, filtroMatricula]);
-
-
 
 
 
@@ -156,6 +161,7 @@ function GestionAlumnos(){
                       ))}
                       </tbody>
                     </table>
+                    <button className="btn" onClick={handleRecargarClick}>Recargar</button>
                       </div>
                   </div>
                 </div>

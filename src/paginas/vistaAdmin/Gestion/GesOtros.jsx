@@ -9,8 +9,11 @@ function GestionOtros(){
   const [filtroNumero_control, setFiltroNumero_control] = useState('');
   const [OtrosFiltrados, setOtrosFiltrados] = useState([]);
   const [cantidadRegistrosO, setCantidadRegistrosO] = useState(0);
+  const [reloadKey, setReloadKey] = useState(0); // Estado para forzar la recarga
 
-
+  const handleRecargarClick = () => {
+    setReloadKey(reloadKey + 1); // Incrementa el valor del estado para forzar la recarga
+  };
 
   useEffect(() => {
     // Hacer la solicitud HTTP a la API utilizando Axios
@@ -18,12 +21,20 @@ function GestionOtros(){
       .then(response => {
         // Actualizar el estado con los datos recibidos de la API
         setOtros(response.data);
-        setCantidadRegistrosO(response.data.length)
+        setCantidadRegistrosO(response.data.length);
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [reloadKey]); // Agregamos reloadKey al array de dependencias para que la solicitud se realice nuevamente al cambiar el estado y forzar la recarga
+
+  useEffect(() => {
+    const OtrosFiltrados = Otros.filter(otro =>
+      otro.numero_control.toString().includes(filtroNumero_control)
+    );
+    setOtrosFiltrados(OtrosFiltrados);
+  }, [Otros, filtroNumero_control, reloadKey]); // Agregamos reloadKey al array de dependencias para que se vuelva a filtrar al cambiar el estado y forzar la recarga
+
 
 
   const handleDelete = (numero_control) => {
@@ -153,6 +164,7 @@ function GestionOtros(){
                       ))}
                       </tbody>
                     </table>
+                    <button className="btn" onClick={handleRecargarClick}>Recargar</button>
                       </div>
                   </div>
                 </div>
