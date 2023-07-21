@@ -27,7 +27,7 @@ function VistaPrevia({ userData }) {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                            <img className="img-fluid" src={userData.fotografia} alt="Foto" />
+                            <img className="img-fluid" src={"https://robohash.org/crede"} alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">
@@ -50,6 +50,7 @@ function VistaPrevia({ userData }) {
                                         <input type="text" className="form-control" value={userData.cuatrimestre} readOnly />
                                     </div>
                                 </div>)}
+
 
                                 { userData.area &&(
                                 <div className="form-group row">
@@ -113,7 +114,7 @@ function VistaPrevia({ userData }) {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                                <img className="img-fluid" src="https://via.placeholder.com/150x200" alt="Foto" />
+                                <img className="img-fluid" src="https://robohash.org/loles" alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">

@@ -34,6 +34,13 @@ function NabvarAdmin({ isAdminLoggedIn, setIsAdminLoggedIn }) {
                         <li className="nav-item">
                             <Link className="nav-link" to="/AltaAlumnos">Alta alumnos</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/AltaDocentes">Alta docentes</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/AltaOtros">Alta otros usuarios</Link>
+                        </li>
+
                     </ul>)}
 
                     {isAdminLoggedIn && (

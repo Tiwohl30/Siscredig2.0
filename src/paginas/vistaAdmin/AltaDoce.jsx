@@ -4,17 +4,15 @@ import Footer from '../../componentes/footer'
 import NabvarAdmin from '../../componentes/NabvarAdmin';
 import background from '../../img/back2.jpeg'
 
-const RegistroAlumnos = () => {
-  const [matricula, setMatricula] = useState('');
+const RegistroDocentes = () => {
+  const [numero_control, setMatricula] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellidoPaterno, setApellidoPaterno] = useState('');
   const [apellidoMaterno, setApellidoMaterno] = useState('');
   const [nss, setNss] = useState('');
   const [direccion, setDireccion] = useState('');
   const [tipoSangre, setTipoSangre] = useState('');
-  const [cuatrimestre, setCuatrimestre] = useState(1);
   const [telefono, setTelefono] = useState('');
-  const [carrera, setCarrera] = useState('Ingenieria de software');
   const [nombreContacto, setNombreContacto] = useState('');
   const [apellidoPaternoContacto, setApellidoPaternoContacto] = useState('');
   const [apellidoMaternoContacto, setApellidoMaternoContacto] = useState('');
@@ -27,36 +25,33 @@ const RegistroAlumnos = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://siscredig-api.onrender.com/api/alumnos/', {
+      const response = await fetch('https://siscredig-api.onrender.com/api/docentes/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          matricula,
+          numero_control,
           nombre,
+          nss,
           apellido_paterno: apellidoPaterno,
           apellido_materno: apellidoMaterno,
-          nss,
           direccion,
           tipo_sangre: tipoSangre,
-          cuatrimestre,
+          email,
           telefono,
-          carrera,
           nombre_contactoe: nombreContacto,
           apellido_paterno_contactoe: apellidoPaternoContacto,
           apellido_materno_contactoe: apellidoMaternoContacto,
           parentescto_contactoe: parentescoContacto,
           telefono_contactoe: telefonoContacto,
-          email,
-          password,
+          password
         }),
       });
 
       if (response.ok) {
         console.log('Usuario registrado exitosamente');
-        alert('Alumno registrado con exito')
-        // Aquí puedes redirigir a otra página o realizar alguna acción adicional después de registrar al usuario
+        alert('Docente registrado con exito')
       } else {
         console.error('Error al registrar al usuario');
       }
@@ -86,14 +81,14 @@ const RegistroAlumnos = () => {
       <NabvarAdmin />
       
       <div className="container contenedor">
-      <h1>Datos del Alumno</h1>
+      <h1>Datos del Docente</h1>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
                 <label className="titlename">
-                  Matricula:
-                  <input type="text" value={matricula} onChange={(e) => setMatricula(e.target.value)} className="form-control" />
+                  Numero de control:
+                  <input type="text" value={numero_control} onChange={(e) => setMatricula(e.target.value)} className="form-control" />
                 </label>
               </div>
             </div>
@@ -190,25 +185,7 @@ const RegistroAlumnos = () => {
               </div>
             </div>
 
-            <div className="col-md-6">
-              <div className="form-group">
-                <label className="titlename">
-                  Cuatrimestre:
-                  <select value={cuatrimestre} onChange={(e) => setCuatrimestre(e.target.value)} className="form-control" id="exampleFormControlSelect1">
-                    <option value={1}>Primer cuatrimestre</option>
-                    <option value={2}>Segundo cuatrimestre</option>
-                    <option value={3}>Tercer cuatrimestre</option>
-                    <option value={4}>Cuarto cuatrimestre</option>
-                    <option value={5}>Quinto cuatrimestre</option>
-                    <option value={6}>Sexto cuatrimestre</option>
-                    <option value={7}>Septimo cuatrimestre</option>
-                    <option value={8}>Octavo cuatrimestre</option>
-                    <option value={9}>Noveno cuatrimestre</option>
-                    <option value={10}>Decimo cuatrimestre</option>
-                  </select>
-                </label>
-              </div>
-            </div>
+           
           </div>
 
           <br />
@@ -219,19 +196,6 @@ const RegistroAlumnos = () => {
                 <label className="titlename">
                   Teléfono:
                   <input type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} className="form-control"/>
-                </label>
-              </div>
-            </div>
-
-            <div className="col-md-6">
-              <div className="form-group">
-                <label className="titlename">
-                  Carrera:
-                  <select value={carrera} onChange={(e) => setCarrera(e.target.value)} className="form-control" id="exampleFormControlSelect1">
-                    <option value="Ingenieria de software">Ingenieria de software</option>
-                    <option value="Ingenieria mecatronica">Ingenieria mecatronica</option>
-                    <option value="Ingenieria en animacion y efectos visuales">Ingenieria en animacion y efectos visuales</option>
-                  </select>
                 </label>
               </div>
             </div>
@@ -316,4 +280,4 @@ const RegistroAlumnos = () => {
   );
 };
 
-export default RegistroAlumnos;
+export default RegistroDocentes;

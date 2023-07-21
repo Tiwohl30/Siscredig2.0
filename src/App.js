@@ -15,6 +15,8 @@ import NavAlumnos from './componentes/NavAlumnos';
 import LoginOtros from './paginas/logins/otros';
 import NabvarAdmin from './componentes/NabvarAdmin';
 import RegistroAlumnos from './paginas/vistaAdmin/AltaUsuarios';
+import RegistroDocentes from './paginas/vistaAdmin/AltaDoce';
+import RegistroOtros from './paginas/vistaAdmin/AltaOtros';
 
 
 
@@ -73,7 +75,16 @@ import RegistroAlumnos from './paginas/vistaAdmin/AltaUsuarios';
             element={isAdminLoggedIn ? <EscanerQR isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} />
             
              <Route path="/AltaAlumnos" 
-            element={isAdminLoggedIn ? <RegistroAlumnos isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} /> 
+            element={isAdminLoggedIn ? <RegistroAlumnos isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} />
+
+            <Route path="/AltaDocentes" 
+            element={isAdminLoggedIn ? <RegistroDocentes isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} />
+
+            <Route path="/AltaOtros" 
+            element={isAdminLoggedIn ? <RegistroOtros isAdminLoggedIn={isAdminLoggedIn}/> : <Navigate to="/" />} />
+
+
+
           </Routes>
         </BrowserRouter>
         </>

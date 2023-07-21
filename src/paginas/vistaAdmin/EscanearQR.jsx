@@ -78,7 +78,7 @@ const [result, setResult] = useState("");
       </p>
 
       {alumnoData && (
-        <div>
+        <div style={estiloComponente}>
           <div className="container" style={{ marginBottom: '100px' }}>
                 <div className="card mt-5">
                     <div className="card-header bg-dark text-white">
@@ -87,7 +87,7 @@ const [result, setResult] = useState("");
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                            <img className="img-fluid" src={alumnoData.fotografia} alt="Foto" />
+                            <img className="img-fluid" src={"https://robohash.org/2EF.png?set=set1"} alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">
@@ -157,7 +157,7 @@ const [result, setResult] = useState("");
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md-4">
-                                <img className="img-fluid" src="https://via.placeholder.com/150x200" alt="Foto" />
+                                <img className="img-fluid" src="https://robohash.org/siscred" alt="Foto" />
                             </div>
                             <div className="col-md-8">
                                 <div className="form-group row">
